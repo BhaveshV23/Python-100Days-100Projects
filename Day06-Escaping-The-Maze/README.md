@@ -44,6 +44,14 @@ This exercise teaches **control flow**, **functions**, and **basic algorithms**.
 
 ---
 
+## 📷 Screenshots
+
+### 🧠 Maze Logic (Code Running)
+<img src="maze_logic.jpg" width="500">
+
+### 🌀 Maze Layout (Reeborg's World)
+<img src="maze.jpg" width="500">
+
 ## 🧠 Maze Solving Algorithm (Right-Hand Rule)
 
 The core logic follows the rule:
