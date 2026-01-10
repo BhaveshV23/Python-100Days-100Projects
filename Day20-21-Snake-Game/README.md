@@ -51,11 +51,11 @@ Day20-21-Snake-Game/
 
 ## ⌨️ Controls
 ```
-| Key | Action |
-|----|--------|
-| ⬆️ Up Arrow | Move Up |
-| ⬇️ Down Arrow | Move Down |
-| ⬅️ Left Arrow | Move Left |
+| Key            | Action     |
+|----------------|------------|
+| ⬆️ Up Arrow    | Move Up    |
+| ⬇️ Down Arrow  | Move Down  |
+| ⬅️ Left Arrow  | Move Left  |
 | ➡️ Right Arrow | Move Right |
 ```
 > Reverse direction is automatically prevented.
