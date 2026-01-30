@@ -1,5 +1,5 @@
 from tkinter import *
-import math
+import winsound
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -14,6 +14,12 @@ LONG_BREAK_MIN = 20
 
 reps = 0
 timer = None
+
+
+# ----------------------------PLAY SOUND --------------------------------- #
+def play_sound():
+    winsound.Beep(1000, 500)
+
 
 # ---------------------------- TIMER RESET ------------------------------- #
 def reset_timer():
@@ -47,6 +53,7 @@ def start_timer():
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
 def count_down(count):
     global timer
+    count = int(count)
 
     count_min = f"{count // 60:02d}"
     count_sec = f"{count % 60:02d}"
@@ -56,6 +63,7 @@ def count_down(count):
     if count > 0:
         timer = window.after(1000, count_down, count - 1)
     else:
+        play_sound()
         start_timer()
         marks = "✓" * (reps // 2)
         check_marks.config(text=marks)
