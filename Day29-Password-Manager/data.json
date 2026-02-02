@@ -1,6 +1,18 @@
 {
-    "Amazon": {
+    "amazon": {
         "email": "bhaveshvadnere8888@gmail.com",
-        "password": "0fX(D$GAV6t#bKg"
+        "password": "9YP:[q-62hY!buCm"
+    },
+    "google": {
+        "email": "bhaveshvadnere8888@gmail.com",
+        "password": "n/m5Ym3$mzk51M"
+    },
+    "microsoft": {
+        "email": "bhaveshvadnere8888@gmail.com",
+        "password": "Nw^slnf8%M'6BzM"
+    },
+    "apple": {
+        "email": "bhaveshvadnere8888@gmail.com",
+        "password": "R82co+Vu4[fJ4LNK"
     }
 }
