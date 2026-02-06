@@ -1,10 +1,8 @@
 import art
-
+import string
 print(art.logo)
 
-alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
-            'v', 'w', 'x', 'y', 'z']
-
+alphabet = string.ascii_lowercase
 
 def caesar(original_text, shift_amount, encode_or_decode):
     output_text = ""
@@ -19,20 +17,41 @@ def caesar(original_text, shift_amount, encode_or_decode):
             shifted_position = alphabet.index(letter) + shift_amount
             shifted_position %= len(alphabet)
             output_text += alphabet[shifted_position]
-    print(f"Here is the {encode_or_decode}d result: {output_text}")
+    return output_text
 
+def ask_to_restart():
+    while True:
+        choice = input("Type 'yes' to go again or 'no' to exit:\n").lower()
+
+        if choice == "yes":
+            return True
+        elif choice == "no":
+            print("Goodbye 👋")
+            return False
+        else:
+            print("Invalid input. Please type 'yes' or 'no'.")
 
 should_continue = True
 
 while should_continue:
 
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+
+    if direction not in ("encode", "decode"):
+        print("Invalid choice.")
+        continue
+
     text = input("Type your message:\n").lower()
-    shift = int(input("Type the shift number:\n"))
+    try:
+        shift = int(input("Type the shift number:\n"))
+    except ValueError:
+        print("Shift must be a number.")
+        continue
 
-    caesar(original_text=text, shift_amount=shift, encode_or_decode=direction)
+    output = caesar(original_text=text, shift_amount=shift, encode_or_decode=direction)
 
-    restart = input("Type 'yes' if you want to go again. Otherwise, type 'no'.\n").lower()
-    if restart == "no":
-        should_continue = False
-        print("Goodbye")
+    print(f"Here is the {direction}d result: {output}")
+
+    if not ask_to_restart():
+        break
+
