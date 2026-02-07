@@ -1,23 +1,18 @@
 import art
 
-
 def add(n1, n2):
     return n1 + n2
-
 
 def subtract(n1, n2):
     return n1 - n2
 
-
 def multiply(n1, n2):
     return n1 * n2
-
 
 def divide(n1, n2):
     if n2 == 0:
         raise ZeroDivisionError("Cannot divide by zero.")
     return n1 / n2
-
 
 operations = {
     "+": add,
@@ -25,7 +20,6 @@ operations = {
     "*": multiply,
     "/": divide,
 }
-
 
 def get_number(prompt):
     """Safely get a valid float from user."""
@@ -35,7 +29,6 @@ def get_number(prompt):
         except ValueError:
             print("❌ Invalid number. Please enter a valid numeric value.")
 
-
 def get_operation():
     """Safely get a valid operation symbol."""
     while True:
@@ -44,43 +37,45 @@ def get_operation():
             return op
         print("❌ Invalid operation. Choose from +, -, *, /.")
 
+def get_choice():
+    while True:
+        choice = input(
+            "Type 'y' to continue, 'n' for new calculation, or 'q' to quit: "
+        ).lower()
+        if choice in {"y", "n", "q"}:
+            return choice
+        print("❌ Invalid choice. Please type y, n, or q.")
 
 def calculator():
     print(art.logo)
 
-    num1 = get_number("What is the first number?: ")
-
     while True:
-        for symbol in operations:
-            print(symbol)
+        num1 = get_number("What is the first number?: ")
 
-        operation_symbol = get_operation()
-        num2 = get_number("What is the next number?: ")
+        while True:
+            print("Available operations:", " ".join(operations.keys()))
 
-        try:
-            answer = operations[operation_symbol](num1, num2)
-        except ZeroDivisionError as e:
-            print(f"❌ Error: {e}")
-            continue
+            operation_symbol = get_operation()
+            num2 = get_number("What is the next number?: ")
 
-        print(f"✅ {num1} {operation_symbol} {num2} = {answer}")
+            try:
+                answer = operations[operation_symbol](num1, num2)
+            except ZeroDivisionError as e:
+                print(f"❌ Error: {e}")
+                continue
 
-        choice = input(
-            f"Type 'y' to continue with {answer}, 'n' for new calculation, or 'q' to quit: "
-        ).lower()
+            print(f"✅ {num1} {operation_symbol} {num2} = {answer}")
 
-        if choice == "y":
-            num1 = answer
-        elif choice == "n":
-            print("\n" * 2)
-            calculator()
-            return
-        elif choice == "q":
-            print("👋 Calculator closed.")
-            return
-        else:
-            print("❌ Invalid choice. Exiting calculator.")
-            return
+            choice = get_choice()
 
+            if choice == "y":
+                num1 = answer
+            elif choice == "n":
+                print("\n" * 2)
+                break
+            else:
+                print("👋 Calculator closed.")
+                return
 
-calculator()
+if __name__ == "__main__":
+    calculator()
