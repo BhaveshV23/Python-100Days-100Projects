@@ -1,5 +1,9 @@
 import requests
 from twilio.rest import Client
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 STOCK_NAME = "TSLA"
 COMPANY_NAME = "Tesla Inc"
@@ -7,12 +11,12 @@ COMPANY_NAME = "Tesla Inc"
 STOCK_ENDPOINT = "https://www.alphavantage.co/query"
 NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
-STOCK_API_KEY = "STOCK_API_KEY"
-NEWS_API_KEY = "NEWS_API_KEY"
-TWILIO_SID = "TWILIO_SID"
-TWILIO_AUTH_TOKEN="TWILIO_AUTH_TOKEN"
-TWILIO_NUMBER = "TWILIO_NUMBER"
-MY_VERIFIED_NUMBER = "MY_VERIFIED_NUMBER"
+STOCK_API_KEY = os.getenv("STOCK_API_KEY")
+NEWS_API_KEY = os.getenv("NEWS_API_KEY")
+TWILIO_SID = os.getenv("TWILIO_SID")
+TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+TWILIO_NUMBER = os.getenv("TWILIO_NUMBER")
+MY_VERIFIED_NUMBER = os.getenv("MY_VERIFIED_NUMBER")
 
 stock_params = {
     "function":"TIME_SERIES_DAILY",
