@@ -132,4 +132,5 @@ If the script stops working, the HTML selectors may need to be updated.
 **Bhavesh Vadnere**
 
 * GitHub: [BhaveshV23](https://github.com/BhaveshV23)
-* YouTube: [bhavesh-vadnere](https://linkedin.com/in/bhavesh-vadnere)
+* LinkedIn: [bhavesh-vadnere](https://linkedin.com/in/bhavesh-vadnere)
+* YouTube: [Bhavesh Vadnere](https://www.youtube.com/channel/UC0VROXkw0mKMf_RtEFqmRrA)
